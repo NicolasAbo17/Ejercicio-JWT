@@ -44,6 +44,4 @@ router.put('/:productoId', auth.checkToken, async function (req, res, next) {
   res.send(editProduct);
 });
 
-
-
 module.exports = router;

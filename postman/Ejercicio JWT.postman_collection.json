@@ -1,0 +1,318 @@
+{
+	"info": {
+		"_postman_id": "39781ab8-a8e3-4cb5-bcb4-0b48eedeba31",
+		"name": "Ejercicio JWT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Abondano\",\r\n    \"email\":\"nicolasabo17@gmail.com\",\r\n    \"password\":\"testjwt\",\r\n    \"role\":\"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3031/users/register/",
+					"host": [
+						"localhost"
+					],
+					"port": "3031",
+					"path": [
+						"users",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register moderator",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Nicolas\",\r\n    \"email\":\"nicolasabo17@gmail.com\",\r\n    \"password\":\"testjwtmod\",\r\n    \"role\":\"moderator\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3031/users/register/",
+					"host": [
+						"localhost"
+					],
+					"port": "3031",
+					"path": [
+						"users",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Francisco\",\r\n    \"email\":\"nicolasabo17@gmail.com\",\r\n    \"password\":\"testjwtclient\",\r\n    \"role\":\"client\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3031/users/register/",
+					"host": [
+						"localhost"
+					],
+					"port": "3031",
+					"path": [
+						"users",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Francisco\",\r\n    \"password\":\"testjwtclient\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3031/users/login/",
+					"host": [
+						"localhost"
+					],
+					"port": "3031",
+					"path": [
+						"users",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los productos (cualquier rol)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmE1Y2U0NjUyZDNkMTQ5NjgyNWZhNzgiLCJuYW1lIjoiU2FsYWNobyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDcwNzQwNywiZXhwIjoxNjA0NzExMDA3fQ.rHIgerUKtPPSEAVmI9KaJdsdIrrWsrecsPScEKPwGp0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3031/products/",
+					"host": [
+						"localhost"
+					],
+					"port": "3031",
+					"path": [
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Abondano\",\r\n    \"password\":\"testjwt\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3031/users/login/",
+					"host": [
+						"localhost"
+					],
+					"port": "3031",
+					"path": [
+						"users",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un producto (solo admin)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmE2MGIwYWUxOGMxNzBlNWM4ZWQzZmUiLCJuYW1lIjoiU2FsYWNobyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDcxNzQzNSwiZXhwIjoxNjA0NzIxMDM1fQ.ZDWNlE_A0oz1aBVTZ71h01MThh5N0EdKJvckCXg3bwA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idproducto\":\"117\",\r\n    \"nombreProducto\":\"Cordero Alice Springs\",\r\n    \"idProveedor\":\"7\",\r\n    \"idCategoria\":\"6\",\r\n    \"cantidadPorUnidad\":\"20   latas 1 kg\",\r\n    \"precioUnidad\":\"39\",\r\n    \"unidadesEnExistencia\":\"0\",\r\n    \"unidadesEnPedido\":\"0\",\r\n    \"nivelNuevoPedido\":\"0\",\r\n    \"suspendido\":\"1\",\r\n    \"categoriaProducto\":\"Categoria D\"\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3031/products/",
+					"host": [
+						"localhost"
+					],
+					"port": "3031",
+					"path": [
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login moderator",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Nicolas\",\r\n    \"password\":\"testjwtmod\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3031/users/login/",
+					"host": [
+						"localhost"
+					],
+					"port": "3031",
+					"path": [
+						"users",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar un producto (solo moderador o admin)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmE2MGIwYWUxOGMxNzBlNWM4ZWQzZmUiLCJuYW1lIjoiU2FsYWNobyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDcxNzQzNSwiZXhwIjoxNjA0NzIxMDM1fQ.ZDWNlE_A0oz1aBVTZ71h01MThh5N0EdKJvckCXg3bwA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\":\"5fa71181b65a2e7f2742432b\",\r\n    \"idproducto\":\"4\",\r\n    \"nombreProducto\":\"nuevo nombre\",\r\n    \"idProveedor\":\"2\",\r\n    \"idCategoria\":\"2\",\r\n    \"cantidadPorUnidad\":\"48   frascos 6 l\",\r\n    \"precioUnidad\":\"22\",\"unidadesEnExistencia\":\"53\",\r\n    \"unidadesEnPedido\":\"0\",\r\n    \"nivelNuevoPedido\":\"0\",\r\n    \"suspendido\":\"0\",\r\n    \"categoriaProducto\":\"Categoria D\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3031/products/5fa71181b65a2e7f2742432b\n",
+					"host": [
+						"localhost"
+					],
+					"port": "3031",
+					"path": [
+						"products",
+						"5fa71181b65a2e7f2742432b\n"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "4e8a1117-1dca-4d94-9c73-baac779d4b2d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "270e018b-8ddb-4110-bddc-301da4fa5496",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -2,12 +2,6 @@ var express = require('express');
 var router = express.Router();
 var [createUser, login] = require('../controllers/user');
 
-/* GET users listing. */
-router.get("/", async function (req, res, next) {
-  const users = await getUsers();
-  res.send(users);
-});
-
 /* Create user. */
 router.post('/register', async function(req, res, next) {
   const newUser = await createUser(req.body);
@@ -18,6 +12,8 @@ router.post('/register', async function(req, res, next) {
 router.post('/login', async function(req, res, next) {
   try {
     const authUser = await login(req.body);
+    console.log("inició sesión xd");
+    console.log(authUser);
     res.send(authUser);
   } catch (error) {
     res.send(403).json({

@@ -12,7 +12,6 @@ async function login(user) {
         .collection(COLLECTION_NAME)
         .findOne({username: user.username})
         .finally(() => client.close());
-
         
       const isValid = await bcrypt.compare(user.password, requestedUser.password);
       // DONE create token
@@ -21,7 +20,6 @@ async function login(user) {
       if(isValid){
           delete currentUser.password;
           let token = auth.createToken(currentUser);
-          console.log(currentUser);
           currentUser.token = token;
           return currentUser;
       } else {
