@@ -1,0 +1,2 @@
+mongo "mongodb+srv://progweb.gw2ib.mongodb.net/<dbname>" --username admin
+mongodb+srv://admin:<password>@progweb.gw2ib.mongodb.net/<dbname>?retryWrites=true&w=majority
